@@ -6,6 +6,22 @@
 const path = require('path')
 
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          // 'vue-style-loader',
+          'style-loader',
+          'css-loader'
+        ],
+      },
+      {
+        test: /.woff|.woff2|.svg|.eot|.ttf/,
+        use: 'url-loader?prefix=font/&limit=10000'
+      }
+    ]
+  },
   dev: {
 
     // Paths

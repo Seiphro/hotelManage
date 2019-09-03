@@ -33,7 +33,9 @@ export default {
                 { 'icon': null, 'index': '/hotelMgmt/incomeStatistics', 'title': '收入统计汇总', 'subs': null },
                 { 'icon': null, 'index': '/hotelMgmt/roomMgmt', 'title': '房间信息管理', 'subs': null }
           ]
-        }
+        },
+        { 'icon': 'el-icon-setting', 'index': '/statistics', 'title': '统计中心', 'subs': null },
+        { 'icon': 'el-icon-setting', 'index': '/authMgmt', 'title': '权限管理', 'subs': null }
       ]
     }
   },

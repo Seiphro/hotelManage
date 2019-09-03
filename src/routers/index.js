@@ -15,7 +15,6 @@ export default new Router({
       path: '/',
       redirect: '/login'
     },
-
     {
       path: '/login',
       component: resolve =>
@@ -32,6 +31,26 @@ export default new Router({
         },
         // ...是ECS6的语法，表示rest和spread操作符，引入routers/index中export default的内容
         ...roomMgmtrouters
+      ]
+    },
+    {
+      path: '/authMgmt',
+      component: resolve => require(['@/components/main/Home.vue'], resolve),
+      children: [
+        {
+          path: '/',
+          component: resolve => require(['@/components/main/Auth.vue'], resolve)
+        }
+      ]
+    },
+    {
+      path: '/statistics',
+      component: resolve => require(['@/components/main/Home.vue'], resolve),
+      children: [
+        {
+          path: '/',
+          component: resolve => require(['@/components/main/Statistics.vue'], resolve)
+        }
       ]
     }
   ]

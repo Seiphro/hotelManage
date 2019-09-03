@@ -1,6 +1,9 @@
 <template>
     <div class="header">
-        <div class="logo" v-show="headerStataus">红叶宾馆管理平台</div>
+        <div class="brand-text d-none d-lg-inline-block brand"  v-show="headerStataus">
+          <strong>U成长</strong>
+          <span>公寓管理平台</span>
+        </div>
         <div class="user-info">
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
@@ -41,7 +44,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style lang="less" scoped>
 .header {
   position: relative;
   box-sizing: border-box;
@@ -50,6 +53,9 @@ export default {
   font-size: 22px;
   line-height: 70px;
   color: #fff;
+  .brand{
+    margin-left: 30px
+  }
 }
 .header .logo {
   float: left;
