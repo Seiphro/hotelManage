@@ -11,7 +11,7 @@
 <script>
 import { getIncome } from '@/views/hotelMgmt/apis'
 
-import {getIncomeEveryYear} from '@apis'
+// import {getIncomeEveryYear} from '@apis'
 
 // import { Json } from 'Json'
 export default {
