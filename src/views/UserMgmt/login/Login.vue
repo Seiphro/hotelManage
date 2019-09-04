@@ -38,28 +38,29 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          var qs = require('qs')
-          var params = qs.stringify({
+          var params = {
             username: this.ruleForm.username,
             password: this.ruleForm.password
-          })
+          }
+          console.log(params)
           login(params)
-            .then(result => {
-              if (result.status) {
+            .then(res => {
+              console.log(res.data)
+              if (res.errorcode === '200') {
                 sessionStorage.setItem(
                   'login_username',
                   this.ruleForm.username
                 )
-                sessionStorage.setItem('token', result.data.token)
-                sessionStorage.setItem(
-                  'meuns',
-                  qs.stringify(result.data.meuns)
-                )
+                sessionStorage.setItem('token', res.data.userType)
+                // sessionStorage.setItem(
+                //   'meuns',
+                //   Json.stringify(result.data.meuns)
+                // )
                 // sessionStorage.setItem('routers', result.data.routers)
                 this.$router.push('/home')
               } else {
                 // response.data.message
-                console.log(result.status + ' ' + result.data.message)
+                console.log(res.errorcode + ' ' + res.errormsg)
                 // self.$message.error(result.data.message)
                 self.$message.error('登录不成功，请重试')
               }

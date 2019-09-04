@@ -12,3 +12,8 @@ const BASE_PATH = process.env.API_URL
 export const authMgmt = params => {
   return Axios.get(`${BASE_PATH}/getManagerList`).then(res => res.data)
 }
+
+// 查询当前房间状态分布
+export const roomStatus = params => {
+  return Axios.get(`${BASE_PATH}/getRoomStatus`).then(res => res.data)
+}
