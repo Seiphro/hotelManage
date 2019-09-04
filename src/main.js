@@ -12,16 +12,7 @@ import './mocks/mock'
 
 import axios from '../node_modules/axios'  // 引入axios
 
-// // jquery
-import './assets/jquery/jquery.min.js'
-import './assets/jquery.cookie/jquery.cookie.js'
-import './assets/jquery-validation/jquery.validate.min.js'
-import './assets/popper.js/umd/popper.min.js'
-import './assets/chart.js/Chart.min.js'
-
 // 引入boostrap
-// import './assets/bootstrap/css/bootstrap.min.css'
-// import './assets/bootstrap/js/bootstrap.min.js'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.js'
 

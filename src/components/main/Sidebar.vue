@@ -23,7 +23,7 @@ export default {
   data () {
     return {
       items: [
-        { 'icon': 'el-icon-setting', 'index': '/home', 'title': '首页', 'subs': null },
+        { 'icon': 'el-icon-s-home', 'index': '/home', 'title': '首页', 'subs': null },
         { 'icon': 'el-icon-menu',
           'index': '2',
           'title': '订单管理',
@@ -34,8 +34,8 @@ export default {
                 { 'icon': null, 'index': '/hotelMgmt/roomMgmt', 'title': '房间信息管理', 'subs': null }
           ]
         },
-        { 'icon': 'el-icon-setting', 'index': '/statistics', 'title': '统计中心', 'subs': null },
-        { 'icon': 'el-icon-setting', 'index': '/authMgmt', 'title': '权限管理', 'subs': null }
+        { 'icon': 'el-icon-s-data', 'index': '/statistics', 'title': '统计中心', 'subs': null },
+        { 'icon': 'el-icon-user-solid', 'index': '/authMgmt', 'title': '权限管理', 'subs': null }
       ]
     }
   },
