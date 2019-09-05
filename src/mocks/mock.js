@@ -44,3 +44,14 @@ Mock.mock(config.url('managerlist'), function () {
     }]
   })
 })
+// 统计房态
+Mock.mock(config.url('roomStatus'), function () {
+  console.log('mock roomStatus')
+  return Mock.mock({
+    data: [{
+      'checkIn|0-50': 0,
+      'ordered|0-50': 0,
+      'empty|0-50': 0
+    }]
+  })
+})

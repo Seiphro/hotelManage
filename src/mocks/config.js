@@ -2,7 +2,8 @@ const SERVER = 'http://localhost'
 const PORT = '8088'
 const API_URL = {
   // homeloadData: '/home/loadData',
-  managerlist: '/getManagerList'
+  managerlist: '/getManagerList',
+  roomStatus: '/hotelMgmt/incomeStatistics/getRoomList'
 }
 
 export default {

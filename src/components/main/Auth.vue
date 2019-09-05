@@ -40,8 +40,12 @@
           <el-button size="mini" type="danger" @click="handleDelete(scope.$index,scope.row)">删除</el-button>
         </template>
       </el-table-column>-->
+      </el-table>
+    </div>
+  </div>
 </template>
 <script>
+import {authMgmt} from '@/apis'
 export default {
   data () {
     return {
@@ -62,8 +66,8 @@ export default {
   mounted () {
     let token = sessionStorage.getItem('token')
     console.log(token)
-    if (token === 1){    // 如果token=1则是管理员
-      isAdmin = true
+    if (token === 1) {    // 如果token=1则是管理员
+      this.isAdmin = true
     }
     // token = sessionStorage.getItem('token')
     // console.log(token)

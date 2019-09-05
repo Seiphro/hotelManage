@@ -19,13 +19,32 @@
   </div>
 </template>
 <script>
+import {roomStatus} from '@/apis'
 export default {
+  data () {
+    return {
+      pieData: {
+        checkIn: '',
+        ordered: '',
+        empty: ''
+      }
+    }
+  },
   mounted () {
-    this.drawChart()
+    roomStatus().then(res => {
+      console.log(res)
+      this.pieData = res.data[0]
+      this.drawChart()
+    })
+    
   },
   methods: {
     drawChart () {
       console.log('进入echart')
+      console.log(this.pieData.ordered)
+      // 获取room后台数据
+      // let roomData = getRoomData()
+      // console.log(roomData)
       // 基于准备好的dom,插入图
       let myChart = this.$echarts.init(document.getElementById('homechart'))
       let myTable = this.$echarts.init(document.getElementById('consumptionTable'))
@@ -47,9 +66,9 @@ export default {
             radius: '55%',
             center: ['35%', '55%'],
             data: [
-              { value: 134, name: '入住' },
-              { value: 310, name: '预订' },
-              { value: 234, name: '空房' }
+              { value: this.pieData.checkIn, name: '入住' },
+              { value: this.pieData.ordered, name: '预订' },
+              { value: this.pieData.empty, name: '空房' }
             ],
             itemStyle: {
               emphasis: {
@@ -60,11 +79,11 @@ export default {
             }
           }
         ]
-      };
-      //消费统计
+      }
+      // 消费统计
       let tableOption = {
         title: {
-          text: '本年度消费趋势',
+          text: '本年度消费趋势'
         },
         tooltip: {
           trigger: 'axis'
@@ -86,14 +105,16 @@ export default {
         xAxis: [
           {
             type: 'category',
-            boundaryGap: true,
-            data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二'],
-            axisLine:{
-              lineStyle:{
-                color: 'red'
-              }
+            boundaryGap: false,
+            data: [' ', '一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            axisLabel: {
+              show: true,
+              'interval': 0, // 横坐标中间间隔
+              rotate: 20 // 横坐标斜度
+            },
+            splitLine: {
+              show: true // X轴刻度参考线
             }
-            
           }
         ],
         yAxis: [
@@ -108,30 +129,20 @@ export default {
           {
             name: '消费金额',
             type: 'line',
-            data: [30, 11, 15, 13, 12, 13, 10, 50, 80],
+            data: [null, 30, 11, 15, 13, 12, 13, 10, 50, 80],
             markPoint: {
               data: [
                 { type: 'max', name: '最大值' },
                 { type: 'min', name: '最小值' }
               ]
             },
-            radius: '55%',
-            center: ['60%', '55%'],
+            // radius: '55%',
+            // center: ['90%', '55%'],
             markLine: {
               data: [{ type: 'average', name: '平均值' }]
-            }
+            },
+            symbolSize: 10
           }
-          // {
-          //   name: "最低气温",
-          //   type: "line",
-          //   data: [1, -2, 2, 5, 3, 2, 0],
-          //   markPoint: {
-          //     data: [{ name: "周最低", value: -2, xAxis: 1, yAxis: -1.5 }]
-          //   },
-          //   markLine: {
-          //     data: [{ type: "average", name: "平均值" }]
-          //   }
-          // }
         ]
       }
       myChart.setOption(roomOption)
