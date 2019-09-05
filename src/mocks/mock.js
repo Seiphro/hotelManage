@@ -44,6 +44,18 @@ Mock.mock(config.url('managerlist'), function () {
     }]
   })
 })
+
+Mock.mock(config.url('roomStateList'), function () {
+  console.log('mock roomStateList')
+  return Mock.mock({
+    'data|32': [{
+      'guestName': '@cname',
+      'id|+1': 1,
+      'state|0-1': 0    // 10-60以内的随机数，0用来确定类型
+    }]
+  })
+})
+
 // 统计房态
 Mock.mock(config.url('roomStatus'), function () {
   console.log('mock roomStatus')
