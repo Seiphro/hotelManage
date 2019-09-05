@@ -52,11 +52,10 @@ export default {
                   this.ruleForm.username
                 )
                 sessionStorage.setItem('token', res.data.userType)
-                // sessionStorage.setItem(
-                //   'meuns',
-                //   Json.stringify(result.data.meuns)
-                // )
-                // sessionStorage.setItem('routers', result.data.routers)
+                console.log(sessionStorage.getItem('token'))
+                // let token = res.data.userType
+                // this.$cookies.set(token)
+                // console.log(this.$cookies.get(token))
                 this.$router.push('/home')
               } else {
                 // response.data.message

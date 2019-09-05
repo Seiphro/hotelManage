@@ -25,19 +25,18 @@ export default {
     return {
       pieData: {
         checkIn: '',
-        ordered: '0',
+        ordered: '',
         empty: ''
       }
     }
   },
   mounted () {
     roomStatus().then(res => {
-      let data = res.data
-      console.log(data)
-      this.pieData = data[0]
-      console.log(this.pieData)
-    }),
-    this.drawChart()
+      console.log(res)
+      this.pieData = res.data[0]
+      this.drawChart()
+    })
+    
   },
   methods: {
     drawChart () {
@@ -51,11 +50,6 @@ export default {
       let myTable = this.$echarts.init(document.getElementById('consumptionTable'))
       // 绘制图表
       let roomOption = {
-        // title: {
-        //   // text: '房间入住情况统计',
-        //   // subtext: '纯属虚构',
-        //   x: 'center'
-        // },
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'
