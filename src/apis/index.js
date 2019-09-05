@@ -12,3 +12,8 @@ const BASE_PATH = process.env.API_URL
 export const authMgmt = params => {
   return Axios.get(`${BASE_PATH}/getManagerList`).then(res => res.data)
 }
+
+// 查询所
+export const roomStateList = params => {
+  return Axios.get(`${BASE_PATH}/getRoomStateList`).then(res => res.data)
+}
