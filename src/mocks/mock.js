@@ -35,12 +35,12 @@ Mock.mock(
 Mock.mock(config.url('managerlist'), function () {
   console.log('mock managerlist')
   return Mock.mock({
-    'data|1-10': [{
-      'name': '@cname',
+    'data|1-5': [{
       'id|+1': 1,
-      'isAdmin|0-1': 0,    // 10-60以内的随机数，0用来确定类型
-      'date': '@date("yyyy-MM-dd")',    // 年月日
-      'address': '@city(true)'    // 中国城市
+      'name': '@cname',
+      'age|18-45': 1,    // 10-60以内的随机数，0用来确定类型
+      'userType': 0
+      // 'date': '@date("yyyy-MM-dd")'    // 年月日
     }]
   })
 })
