@@ -3,7 +3,8 @@ const PORT = '8088'
 const API_URL = {
   // homeloadData: '/home/loadData',
   managerlist: '/getManagerList',
-  roomStateList: '/getRoomStateList'
+  roomStateList: '/getRoomStateList',
+  roomStatus: '/hotelMgmt/incomeStatistics/getRoomList'
 }
 
 export default {
