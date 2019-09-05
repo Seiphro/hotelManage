@@ -36,16 +36,11 @@ export default {
       this.pieData = res.data[0]
       this.drawChart()
     })
-    
   },
   methods: {
     drawChart () {
       console.log('进入echart')
       console.log(this.pieData.ordered)
-      // 获取room后台数据
-      // let roomData = getRoomData()
-      // console.log(roomData)
-      // 基于准备好的dom,插入图
       let myChart = this.$echarts.init(document.getElementById('homechart'))
       let myTable = this.$echarts.init(document.getElementById('consumptionTable'))
       // 绘制图表

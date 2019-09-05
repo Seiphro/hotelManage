@@ -53,9 +53,6 @@ export default {
                 )
                 sessionStorage.setItem('token', res.data.userType)
                 console.log(sessionStorage.getItem('token'))
-                // let token = res.data.userType
-                // this.$cookies.set(token)
-                // console.log(this.$cookies.get(token))
                 this.$router.push('/home')
               } else {
                 // response.data.message
