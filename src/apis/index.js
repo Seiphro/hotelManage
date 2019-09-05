@@ -15,5 +15,5 @@ export const authMgmt = params => {
 
 // 查询当前房间状态分布
 export const roomStatus = params => {
-  return Axios.get(`${BASE_PATH}/getRoomStatus`).then(res => res.data)
+  return Axios.get(`${BASE_PATH}/hotelMgmt/incomeStatistics/getRoomList`).then(res => res.data)
 }
