@@ -40,6 +40,7 @@ export default {
       this.pieData = res.data
       this.drawChart()
     })
+<<<<<<< HEAD
     incomeStatus().then(res => {
       console.log(res)
       this.tableData = res.data
@@ -54,15 +55,21 @@ export default {
       }
       this.drawChart(xdata, ydata)
     })
+=======
+>>>>>>> e3348a64b990f9347203f0409edaca0bd5decb30
   },
   methods: {
     drawChart (xdata, ydata) {
       console.log('进入echart')
+<<<<<<< HEAD
       // var numTotalMoney = Object.keys(this.tableData).length
       // 获取room后台数据
       // let roomData = getRoomData()
       // console.log(roomData)
       // 基于准备好的dom,插入图
+=======
+      console.log(this.pieData.ordered)
+>>>>>>> e3348a64b990f9347203f0409edaca0bd5decb30
       let myChart = this.$echarts.init(document.getElementById('homechart'))
       let myTable = this.$echarts.init(document.getElementById('incomeTable'))
       // 绘制图表

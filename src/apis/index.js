@@ -13,7 +13,14 @@ export const authMgmt = params => {
   return Axios.get(`${BASE_PATH}/getManagerList`).then(res => res.data)
 }
 
+<<<<<<< HEAD
 // 查看当前房间状态分布
+=======
+// 查询所有房间信息
+export const roomStateList = params => {
+  return Axios.get(`${BASE_PATH}/getRoomStateList`).then(res => res.data)
+// 查询当前房间状态分布
+>>>>>>> e3348a64b990f9347203f0409edaca0bd5decb30
 export const roomStatus = params => {
   return Axios.get(`${BASE_PATH}/hotelMgmt/incomeStatistics/getRoomList`).then(res => res.data)
 }

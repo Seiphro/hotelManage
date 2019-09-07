@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-button type="primary" icon="el-icon-plus" @click="dialogFormVisible = true">
+      <el-button type="primary" icon="el-icon-plus" @click="dialogFormVisible = true" v-if="token==='1'">
         <span>新增</span>
       </el-button>
       <!-- 新增管理员 dialog start-->
@@ -23,13 +23,23 @@
       <el-button type="primary" icon="el-icon-edit" @click="dialogFormVisible = true">
         <span>修改</span>
       </el-button>
-      <el-button type="danger" icon="el-icon-minus" @click="dialogFormVisible = true" v-if="isAdmin=='true'">
+      <el-button
+        type="danger"
+        icon="el-icon-minus"
+        @click="dialogFormVisible = true"
+        v-if="token==='1'"
+        disabled="isSelected">
         <span>删除</span>
       </el-button>
     </div>
     <div class="managertable">
-      <el-table ref="managerData" :data="managerData" style="width: 95%" border>
-        <el-table-column type="selection" width="55" align="center"></el-table-column>
+      <el-table ref="managerData" :data="managerData" border>
+        <el-table-column
+          type="selection"
+          width="55"
+          align="center"
+          :selectable="selectable">
+        </el-table-column>
         <el-table-column prop="id" type="index" label="序号" width="180"  align="center"></el-table-column>
         <el-table-column prop="name" label="管理员" align="center"></el-table-column>
         <!-- <el-table-column prop="date" label="注册日期"></el-table-column> -->
@@ -50,8 +60,9 @@ export default {
   data () {
     return {
       managerData: [],
+      isSelected: true,
       dialogFormVisible: false,
-      isAdmin: false,
+      token: sessionStorage.getItem('token'),
       form: {
         name: '',
         age: '',
@@ -64,18 +75,22 @@ export default {
     }
   },
   mounted () {
-    let token = sessionStorage.getItem('token')
-    console.log(token)
-    if (token === 1) {    // 如果token=1则是管理员
-      this.isAdmin = true
-    }
-    // token = sessionStorage.getItem('token')
-    // console.log(token)
     authMgmt().then(res => {
       let data = res.data
       console.log(data)
       this.managerData = data
     })
+  },
+  methods: {
+    selectable () {  // 确定checkbox是否可选择状态
+      // this.isSelected = true
+      // console.log(this.token)
+      if (this.token === 1) {
+        return false
+      } else if (this.token === 0) {
+        return true
+      }
+    }
   }
 }
 </script>
