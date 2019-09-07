@@ -31,7 +31,6 @@ Mock.mock(
     }
   }
 )
-
 Mock.mock(config.url('managerlist'), function () {
   console.log('mock managerlist')
   return Mock.mock({
@@ -44,14 +43,83 @@ Mock.mock(config.url('managerlist'), function () {
     }]
   })
 })
-// 统计房态
+// 统计房态(房间入住情况)
 Mock.mock(config.url('roomStatus'), function () {
   console.log('mock roomStatus')
   return Mock.mock({
-    data: [{
-      'checkIn|0-50': 0,
-      'ordered|0-50': 0,
-      'empty|0-50': 0
-    }]
+    'errorcode': '00000',
+    'errormsg': '',
+    'data': [
+      {
+        'status': 0, // 入住
+        'count': 3
+      },
+      {
+        'status': 1, // 预定
+        'count': 1
+      },
+      {
+        'status': -1, // 空房
+        'count': 22
+      }
+    ]
+  })
+})
+// 统计房态(房间入住情况)
+Mock.mock(config.url('incomeStatus'), function () {
+  console.log('mock incomeStatus')
+  return Mock.mock({
+    'errorcode': '00000',
+    'errormsg': '',
+    'data': [
+      {
+        'amonth': '2019-01',
+        'totalMoney': 2000
+      },
+      {
+        'amonth': '2019-02',
+        'totalMoney': 600
+      },
+      {
+        'amonth': '2019-03',
+        'totalMoney': 300
+      },
+      {
+        'amonth': '2019-04',
+        'totalMoney': 500
+      },
+      {
+        'amonth': '2019-05',
+        'totalMoney': 2000
+      },
+      {
+        'amonth': '2019-06',
+        'totalMoney': 3000
+      },
+      {
+        'amonth': '2019-07',
+        'totalMoney': 2000
+      },
+      {
+        'amonth': '2019-08',
+        'totalMoney': 8549
+      },
+      {
+        'amonth': '2019-09',
+        'totalMoney': 120
+      },
+      {
+        'amonth': '2019-10',
+        'totalMoney': 120
+      }
+      // {
+      //   'amonth': '2019-11',
+      //   'totalMoney': 120
+      // },
+      // {
+      //   'amonth': '2019-12',
+      //   'totalMoney': 120
+      // }
+    ]
   })
 })

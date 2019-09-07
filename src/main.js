@@ -7,7 +7,6 @@ import App from './App'
 import router from './routers'
 import ajax from '@/assets/js/AxiosPlugin'
 import store from './stores'
-import VueCookies from 'vue-cookies'
 
 // 使用mock时，将引入mock，取消注释
 import './mocks/mock'
@@ -31,7 +30,6 @@ axios.defaults.headers.post['Content-Type'] = 'application/json'
 //   require('@/mocks/mock')
 // }
 
-Vue.use(VueCookies)
 Vue.use(ElementUI)
 Vue.use(ajax)
 
