@@ -4,6 +4,7 @@
 import axios from 'axios'
 
 const Axios = axios.create({
+  baseURL: process.env.baseURL, // api的baseURL
   timeout: 10000
 })
 

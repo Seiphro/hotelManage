@@ -28,8 +28,8 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      "/hotelMgmt": {
-        target: 'http://localhost:8088/',  
+      "/": {
+        target: 'http://localhost:8082/',  
         changeOrigin: true
       },
     },

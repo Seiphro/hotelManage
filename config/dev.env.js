@@ -4,6 +4,6 @@ const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API_URL: '"http://localhost:8088"',
+  API_URL: '"http://localhost:8082"',
   DeviceManagement_API_URL: '"http://localhost:8080"'
 })

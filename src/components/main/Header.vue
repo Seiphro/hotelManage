@@ -8,20 +8,63 @@
             <el-dropdown trigger="click" @command="handleCommand">
                 <span class="el-dropdown-link">
                     <!-- <img class="user-logo" src="../../../static/img/img.jpg"> -->
-                    {{username}}
+                    <el-button icon="el-icon-s-custom" circle></el-button>
+                    <!-- {{username}} -->
                 </span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item command="loginout">退出</el-dropdown-item>
+                <el-dropdown-menu slot="dropdown" width="180px">
+                    <el-dropdown-item>
+                      <el-button class="dropdown-btn">{{username}}</el-button>
+                    </el-dropdown-item>
+                    <el-dropdown-item>
+                      <el-button  class="dropdown-btn" @click="editFormVisible = true">修改密码</el-button>
+                      
+                    </el-dropdown-item>
+                    <el-dropdown-item command="loginout">
+                      <el-button  class="dropdown-btn">退出</el-button>
+                    </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
+            <!-- 修改管理员密码 start -->
+            <el-dialog title="修改密码" :visible.sync="editFormVisible" width="30%">
+              <el-form :model="formEdit" ref="formEdit">
+                <!-- <el-form-item label="旧密码" :label-width="formLabelWidth">
+                  <el-input v-model="formEdit.password" autocomplete="off"></el-input>
+                </el-form-item> -->
+                <el-form-item label="新密码" :label-width="formLabelWidth">
+                  <el-input v-model="formEdit.password" autocomplete="off" type="password"></el-input>
+                </el-form-item>
+                <el-form-item label="确认密码" :label-width="formLabelWidth">
+                  <el-input v-model="formEdit.rePassword" autocomplete="off" type="password"></el-input>
+                </el-form-item>
+              </el-form>
+              <div slot="footer" class="dialog-footer">
+                <el-button @click="editFormVisible = false">取 消</el-button>
+                <el-button type="primary" @click="resetManager('formEdit')">确 定</el-button>
+              </div>
+            </el-dialog>
+            <!-- 修改管理员密码 end -->
         </div>
     </div>
 </template>
 <script>
+import {updateManager} from '@/apis'
 export default {
   data () {
     return {
-      name: ''
+      formLabelWidth: '100px',
+      name: '',
+      editFormVisible: false,
+      rules: {
+        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        rePassword: [{ required: true, message: '请确认密码', trigger: 'blur' }]
+      },
+      formEdit: {
+        name: sessionStorage.getItem('login_username'),
+        age: sessionStorage.getItem('age'),
+        password: '',
+        rePassword: ''
+      }
     }
   },
   computed: {
@@ -38,8 +81,35 @@ export default {
       if (command === 'loginout') {
         sessionStorage.removeItem('login_username')
         sessionStorage.removeItem('token')
+        sessionStorage.removeItem('age')
         this.$router.push('/login')
       }
+    },
+    resetManager (formName) {
+      this.$refs['formEdit'].validate(valid => {
+        if (valid) {
+          var params = {
+            name: this.formEdit.name,
+            password: this.formEdit.password,
+            age: this.formEdit.age
+          }
+          updateManager(params).then(res => {
+            if (res.errorcode === 200) {
+              alert('修改成功,请重新登录')
+              console.log('修改成功,请重新登录')
+              this.editFormVisible = false
+              this.$router.push('/login')
+            } else {
+              console.log(res.errorcode)
+            }
+          }).catch(function (error) {
+            console.log(error)
+          })
+        } else {
+          console.log('error submit!')
+          return false
+        }
+      })
     }
   }
 }
@@ -86,5 +156,8 @@ export default {
 }
 .el-dropdown-menu__item {
   text-align: center;
+}
+.dropdown-btn {
+  width: 160px
 }
 </style>
