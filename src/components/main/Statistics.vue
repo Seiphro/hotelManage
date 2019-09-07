@@ -32,19 +32,12 @@ export default {
   },
   mounted () {
     roomStatus().then(res => {
-<<<<<<< HEAD
       let data = res.data
       console.log(data)
       this.pieData = data[0]
       console.log(this.pieData)
     })
     this.drawChart()
-=======
-      console.log(res)
-      this.pieData = res.data[0]
-      this.drawChart()
-    })
->>>>>>> ecf3a3221417dbd86ce06dd5d9fc17ab84ba0428
   },
   methods: {
     drawChart () {
