@@ -38,28 +38,12 @@ Mock.mock(config.url('managerlist'), function () {
       'id|+1': 1,
       'name': '@cname',
       'age|18-45': 1,    // 10-60以内的随机数，0用来确定类型
-      'userType': 0
+      'userType': 1
       // 'date': '@date("yyyy-MM-dd")'    // 年月日
     }]
   })
 })
-<<<<<<< HEAD
 // 统计房态(房间入住情况)
-=======
-
-Mock.mock(config.url('roomStateList'), function () {
-  console.log('mock roomStateList')
-  return Mock.mock({
-    'data|32': [{
-      'guestName': '@cname',
-      'id|+1': 1,
-      'state|0-1': 0    // 10-60以内的随机数，0用来确定类型
-    }]
-  })
-})
-
-// 统计房态
->>>>>>> e3348a64b990f9347203f0409edaca0bd5decb30
 Mock.mock(config.url('roomStatus'), function () {
   console.log('mock roomStatus')
   return Mock.mock({

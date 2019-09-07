@@ -35,6 +35,9 @@ export default new Router({
     },
     {
       path: '/authMgmt',
+      meta: {
+        requireAuth: true
+      },
       component: resolve => require(['@/components/main/Home.vue'], resolve),
       children: [
         {

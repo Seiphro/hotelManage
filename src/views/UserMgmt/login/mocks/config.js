@@ -1,7 +1,7 @@
 const SERVER = 'http://localhost'
 const PORT = '8082'
 const API_URL = {
-  userlogin: '/user/login',
+  userlogin: '/login',
   homeloadData: '/home/loadData',
   userlist: '/user/list?page=1&pageSize=10&name=&address='
 }

@@ -52,12 +52,12 @@ export default {
                   this.ruleForm.username
                 )
                 sessionStorage.setItem('token', res.data.userType)
+                sessionStorage.setItem('age', res.data.age)
                 console.log(sessionStorage.getItem('token'))
                 this.$router.push('/home')
               } else {
                 // response.data.message
                 console.log(res.errorcode + ' ' + res.errormsg)
-                // self.$message.error(result.data.message)
                 self.$message.error('登录不成功，请重试')
               }
             })
@@ -85,6 +85,7 @@ export default {
     width: 350px;
     padding: 35px 35px 15px 35px;
     background: #fff;
+    /* background-color: black; */
     border: 1px solid #eaeaea;
     box-shadow: 0 0 25px #cac6c6;
 }

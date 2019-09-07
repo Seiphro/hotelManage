@@ -14,11 +14,30 @@ export const authMgmt = params => {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // 查看当前房间状态分布
 =======
+=======
+// 超级管理员新增管理员
+export const register = params => {
+  return Axios.post(`${BASE_PATH}/insertManager`).then(res => res.data)
+}
+
+// 超级管理员修改管理员信息
+export const updateManager = params => {
+  return Axios.post(`${BASE_PATH}/updateManager`).then(res => res.data)
+}
+
+// 超级管理员删除普通管理员
+export const deleteManager = params => {
+  return Axios.post(`${BASE_PATH}/deleteManager`).then(res => res.data)
+}
+
+>>>>>>> ecf3a3221417dbd86ce06dd5d9fc17ab84ba0428
 // 查询所有房间信息
 export const roomStateList = params => {
   return Axios.get(`${BASE_PATH}/getRoomStateList`).then(res => res.data)
+}
 // 查询当前房间状态分布
 >>>>>>> e3348a64b990f9347203f0409edaca0bd5decb30
 export const roomStatus = params => {

@@ -83,6 +83,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^4.0.0",
     "sinon-chai": "^2.8.0",
+    "store": "^2.0.12",
     "url-loader": "^0.5.8",
     "vue-cookies": "^1.5.13",
     "vue-loader": "^13.3.0",
