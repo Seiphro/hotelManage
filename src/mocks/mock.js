@@ -32,17 +32,58 @@ Mock.mock(
   }
 )
 
+// 查看所有管理员
 Mock.mock(config.url('managerlist'), function () {
   console.log('mock managerlist')
   return Mock.mock({
-    'data|1-10': [{
-      'name': '@cname',
+    'data|1-5': [{
       'id|+1': 1,
-      'isAdmin|0-1': 0,    // 10-60以内的随机数，0用来确定类型
-      'date': '@date("yyyy-MM-dd")',    // 年月日
-      'address': '@city(true)'    // 中国城市
+      'name': '@cname',
+      'age|18-45': 1,    // 10-60以内的随机数，0用来确定类型
+      'userType': 1
+      // 'date': '@date("yyyy-MM-dd")'    // 年月日
     }]
   })
+})
+
+// 新增管理员
+Mock.mock(config.url('registerManager'), function () {
+  console.log('mock registerManager')
+  return {
+    'errorcode': 200,
+    'errormsg': '新增管理员成功',
+    'data': ''
+  }
+})
+
+// 超级管理员修改普通管理员
+Mock.mock(config.url('updateManager'), function () {
+  console.log('mock updateManager')
+  return {
+    'errorcode': 200,
+    'errormsg': '修改管理员成功',
+    'data': ''
+  }
+})
+
+// 删除管理员
+Mock.mock(config.url('deleteManager'), function () {
+  console.log('mock deleteManager')
+  return {
+    'errorcode': 200,
+    'errormsg': '删除管理员成功',
+    'data': ''
+  }
+})
+
+// 管理员自己给自己修改密码
+Mock.mock(config.url('resetManagerPwd'), function () {
+  console.log('mock resetManagerPwd')
+  return {
+    'errorcode': 200,
+    'errormsg': '修改密码成功',
+    'data': ''
+  }
 })
 
 Mock.mock(config.url('roomStateList'), function () {

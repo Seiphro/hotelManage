@@ -25,37 +25,35 @@ export default {
     return {
       pieData: {
         checkIn: '',
-        ordered: '0',
+        ordered: '',
         empty: ''
       }
     }
   },
   mounted () {
     roomStatus().then(res => {
+<<<<<<< HEAD
       let data = res.data
       console.log(data)
       this.pieData = data[0]
       console.log(this.pieData)
     })
     this.drawChart()
+=======
+      console.log(res)
+      this.pieData = res.data[0]
+      this.drawChart()
+    })
+>>>>>>> ecf3a3221417dbd86ce06dd5d9fc17ab84ba0428
   },
   methods: {
     drawChart () {
       console.log('进入echart')
       console.log(this.pieData.ordered)
-      // 获取room后台数据
-      // let roomData = getRoomData()
-      // console.log(roomData)
-      // 基于准备好的dom,插入图
       let myChart = this.$echarts.init(document.getElementById('homechart'))
       let myTable = this.$echarts.init(document.getElementById('consumptionTable'))
       // 绘制图表
       let roomOption = {
-        // title: {
-        //   // text: '房间入住情况统计',
-        //   // subtext: '纯属虚构',
-        //   x: 'center'
-        // },
         tooltip: {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'

@@ -11,7 +11,7 @@ Mock.mock(config.url('userlogin'), function () {
       'name': 'admin',
       'age': 28,
       'password': 'admin',
-      'userType': 1
+      'userType': 0   // 超级管理员是0 普通管理员是1
     }
     // // 登录失败情况
     // 'errorcode': '500',

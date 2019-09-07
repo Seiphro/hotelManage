@@ -14,6 +14,21 @@ export const authMgmt = params => {
   return Axios.get(`${BASE_PATH}/getManagerList`).then(res => res.data)
 }
 
+// 超级管理员新增管理员
+export const register = params => {
+  return Axios.post(`${BASE_PATH}/insertManager`).then(res => res.data)
+}
+
+// 超级管理员修改管理员信息
+export const updateManager = params => {
+  return Axios.post(`${BASE_PATH}/updateManager`).then(res => res.data)
+}
+
+// 超级管理员删除普通管理员
+export const deleteManager = params => {
+  return Axios.post(`${BASE_PATH}/deleteManager`).then(res => res.data)
+}
+
 // 查询所有房间信息
 export const roomStateList = params => {
   return Axios.get(`${BASE_PATH}/getRoomStateList`).then(res => res.data)

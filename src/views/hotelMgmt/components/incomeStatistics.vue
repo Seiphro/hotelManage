@@ -101,7 +101,4 @@ export default {
   width: 50%;
 }
 </style>
-<style scoped>
-@import "../../../assets/css/style.default.css";
-</style>
 
