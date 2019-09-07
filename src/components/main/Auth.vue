@@ -5,7 +5,7 @@
         <span>新增</span>
       </el-button>
       <!-- 新增管理员 dialog start-->
-      <el-dialog title="新增管理员" :visible.sync="insertFormVisible">
+      <el-dialog title="新增管理员" :visible.sync="insertFormVisible"  width="30%">
         <el-form :model="formRegister" ref="formRegister">
           <el-form-item label="用户名" :label-width="formLabelWidth">
             <el-input v-model="formRegister.name" autocomplete="off"></el-input>
@@ -26,12 +26,6 @@
     </div>
     <div class="managertable">
       <el-table ref="managerData" :data="managerData" border>
-        <!-- <el-table-column
-          type="selection"
-          width="55"
-          align="center">
-          :selectable="selectable">
-        </el-table-column> -->
         <el-table-column prop="id" type="index" label="序号" width="180"  align="center"></el-table-column>
         <el-table-column prop="name" label="管理员" align="center"></el-table-column>
         <el-table-column prop="age" label="年龄" align="center"></el-table-column>
@@ -47,7 +41,7 @@
                     <!-- <el-input v-model="formEdit.name" autocomplete="off"></el-input> -->
                   </el-form-item>
                   <el-form-item label="年龄:" :label-width="formLabelWidth">
-                    <el-input v-model="formEdit.age" autocomplete="off"></el-input>
+                    <el-input v-model="formEdit.age" autocomplete="off" style="width=50px"></el-input>
                   </el-form-item>
                   <el-form-item label="密码:" :label-width="formLabelWidth">
                     <el-input v-model="formEdit.password" autocomplete="off" type="password"></el-input>
@@ -59,8 +53,8 @@
                 </div>
               </el-dialog>
               <!-- 修改管理员信息框 end -->
-              <el-button type="danger" icon="el-icon-delete" @click="deleteM"></el-button>
-              <el-dialog title="删除管理员" :visible.sync="deleteFormVisible">
+              <el-button type="danger" icon="el-icon-delete" @click="deleteM(scope.row)"></el-button>
+              <el-dialog title="删除管理员" :visible.sync="deleteFormVisible"  width="30%">
                 <span>确认删除{{scope.row.name}}?</span>
                 <div slot="footer" class="dialog-footer">
                   <el-button @click="deleteFormVisible = false">取 消</el-button>

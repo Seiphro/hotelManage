@@ -1,8 +1,8 @@
 import Axios from '@/assets/js/AxiosPlugin'
 
 // 接口地址
-const BASE_PATH = process.env.API_URL
-// const BASE_PATH = 'http://localhost:8082'
+// const BASE_PATH = process.env.API_URL
+const BASE_PATH = 'http://localhost:8082'
 
 // // 查询管理员信息
 // export const getManagerList = () => {

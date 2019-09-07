@@ -13,14 +13,13 @@
                 </span>
                 <el-dropdown-menu slot="dropdown" width="180px">
                     <el-dropdown-item>
-                      <el-button class="dropdown-btn">{{username}}</el-button>
+                        <a>管理员 <strong>{{username}}</strong></a>
                     </el-dropdown-item>
                     <el-dropdown-item>
-                      <el-button  class="dropdown-btn" @click="editFormVisible = true">修改密码</el-button>
-                      
+                      <a @click="editFormVisible = true">修改密码</a>
                     </el-dropdown-item>
                     <el-dropdown-item command="loginout">
-                      <el-button  class="dropdown-btn">退出</el-button>
+                      <a>退出</a>
                     </el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
@@ -156,8 +155,5 @@ export default {
 }
 .el-dropdown-menu__item {
   text-align: center;
-}
-.dropdown-btn {
-  width: 160px
 }
 </style>
