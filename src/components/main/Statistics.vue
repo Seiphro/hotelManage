@@ -29,7 +29,7 @@ export default {
         count: ''
       },
       tableData: {
-        amonth: '',
+        smonth: '',
         totalMoney: ''
       }
     }
@@ -38,7 +38,7 @@ export default {
     roomStatus().then(res => {
       console.log(res.data)
       this.pieData = res.data
-      this.drawChart()
+      this.drawChart1()
     })
     incomeStatus().then(res => {
       console.log(res)
@@ -47,25 +47,17 @@ export default {
       let xdata = []
       let ydata = []
       for (let i in this.tableData) {
-        xdata.push(this.tableData[i].amonth)
-        // let test = {value: this.tableData[i].totalMoney, name: this.tableData[i].amonth}
-        // console.log(test)
-        ydata.push(this.tableData[i].totalMoney)
+        xdata.push(this.tableData[i].smonth)
+        let data = {value: this.tableData[i].totalMoney, name: this.tableData[i].smonth}
+        ydata.push(data)
       }
-      this.drawChart(xdata, ydata)
+      this.drawChart2(xdata, ydata)
     })
   },
   methods: {
-    drawChart (xdata, ydata) {
-      console.log('进入echart')
-      // var numTotalMoney = Object.keys(this.tableData).length
-      // 获取room后台数据
-      // let roomData = getRoomData()
-      // console.log(roomData)
-      // 基于准备好的dom,插入图
+    drawChart1 () {
+      console.log('进入echart1')
       let myChart = this.$echarts.init(document.getElementById('homechart'))
-      let myTable = this.$echarts.init(document.getElementById('incomeTable'))
-      // 绘制图表
       let roomOption = {
         tooltip: {
           trigger: 'item',
@@ -97,6 +89,12 @@ export default {
           }
         ]
       }
+      myChart.setOption(roomOption)
+    },
+    drawChart2 (xdata, ydata) {
+      console.log('进入echart2')
+      // 基于准备好的dom,插入图
+      let myTable = this.$echarts.init(document.getElementById('incomeTable'))
       // 消费统计
       let tableOption = {
         title: {
@@ -179,21 +177,10 @@ export default {
           }
         ]
       }
-      myChart.setOption(roomOption)
       myTable.setOption(tableOption)
     }
   }
 }
-// function getData () {
-//   var item = []
-//   for (var i = 0; i < Object.keys(this.tableData).length; i++) {
-//     var json = {}
-//     json.value = 'amonth'
-//     json.value = this.tableData[i].datalist.totalMoney
-//     item.push(json)
-//   }
-//   return item
-// }
 </script>
 <style lang="less" scoped>
 .Chart {
