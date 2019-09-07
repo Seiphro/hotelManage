@@ -1,14 +1,21 @@
-<template>
+  <template>
   <div class="login-wrap">
     <!-- <div class="ms-login"> -->
-    <div>
+      <div class="logo">
+        <img src="../../../../src\assets\images\unicom.png" width="85%">
+      </div>
+    <div class="login">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
         <div class="ms-title">U成长公寓管理平台</div>
         <el-form-item prop="username">
-          <el-input v-model="ruleForm.username" placeholder="用户名"></el-input>
+          <!-- <el-button icon="el-icon-myhotelyonghudenglu1" type="primary" @click="submitForm('formline')"></el-button> -->
+          <el-input v-model="ruleForm.username" type="changeType" placeholder="  用户名"  prefix-icon="el-icon-myhotelyonghudenglu1">
+          </el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" placeholder="密码" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')"></el-input>
+          <el-input type="password" placeholder="  密码" v-model="ruleForm.password" prefix-icon="el-icon-myhotelmima3" @keyup.enter.native="submitForm('ruleForm')">
+           <!-- <el-button icon="el-icon-myhotelmima3" type="primary" @click="submitForm('formline')"></el-button> -->
+          </el-input>
         </el-form-item>
         <div class="login-btn">
           <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -20,7 +27,6 @@
 </template>
 <script>
 import { login } from '@/views/UserMgmt/login/apis'
-
 export default {
   data: function () {
     return {
@@ -74,26 +80,45 @@ export default {
 }
 </script>
 <style scoped>
+div.logo{
+  width: 50%;
+  height: 300px;
+  position: relative;
+  float: left;
+}
+div.login{
+  width: 50%;
+  position: relative;
+  margin: 0px;
+  float: right;
+  padding: 20px 0 0 0;
+}
+
+
 .login-wrap {
-    width: 100%;
     /* height: 50%; */
     -webkit-border-radius: 5px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     background-clip: padding-box;
     margin: 120px auto;
-    width: 350px;
-    padding: 35px 35px 15px 35px;
+    width: 700px;
+    padding: 15px 35px 15px 15px;
     background: #fff;
     /* background-color: black; */
     border: 1px solid #eaeaea;
-    box-shadow: 0 0 25px #cac6c6;
-}
+    box-shadow: 0 0 25px #1b5b80;
+    height: 300px;
+    }
 .ms-title {
-    margin: 0px auto 30px auto;
+    margin: 0px auto 15px auto;
     text-align: center;
-    font-size: 20px;
+    font-family: SimSun;
+    font-size: 25px;
+    font-weight: 1000;
+    text-shadow: #4275d4;
     color: #505458;
+   
     /* background-color: pink; */
 }
 .ms-login {
@@ -110,9 +135,13 @@ export default {
 .login-btn {
     text-align: center;
     margin: auto;
+    width: 324px;
+    height: 40px;
 }
 .login-btn button {
     width: 100%;
     height: 36px;
+
 }
 </style>
+
