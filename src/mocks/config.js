@@ -1,5 +1,5 @@
 const SERVER = 'http://localhost'
-const PORT = '8088'
+const PORT = '8082'
 const API_URL = {
   // homeloadData: '/home/loadData',
   managerlist: '/getManagerList',

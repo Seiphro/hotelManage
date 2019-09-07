@@ -36,7 +36,7 @@ export default {
       console.log(data)
       this.pieData = data[0]
       console.log(this.pieData)
-    }),
+    })
     this.drawChart()
   },
   methods: {

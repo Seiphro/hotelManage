@@ -2,6 +2,7 @@ import Axios from '@/assets/js/AxiosPlugin'
 
 // 接口地址
 const BASE_PATH = process.env.API_URL
+// const BASE_PATH = 'http://localhost:8082'
 
 // // 查询管理员信息
 // export const getManagerList = () => {
@@ -16,6 +17,7 @@ export const authMgmt = params => {
 // 查询所有房间信息
 export const roomStateList = params => {
   return Axios.get(`${BASE_PATH}/getRoomStateList`).then(res => res.data)
+}
 // 查询当前房间状态分布
 export const roomStatus = params => {
   return Axios.get(`${BASE_PATH}/hotelMgmt/incomeStatistics/getRoomList`).then(res => res.data)

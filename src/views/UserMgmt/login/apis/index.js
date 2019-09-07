@@ -4,7 +4,7 @@ import Axios from '@/assets/js/AxiosPlugin'
 const BASE_PATH = process.env.API_URL
 
 // 用户登录
-export const login = params => { return Axios.post(`${BASE_PATH}/user/login`, params).then(res => res.data) }
+export const login = params => { return Axios.post(`${BASE_PATH}/login`, params).then(res => res.data) }
 
 // 获取用户列表
 export const getUserList = params => { return Axios.get(`${BASE_PATH}/user/list`, { params: params }).then(res => res.data) }

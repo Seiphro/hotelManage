@@ -7,15 +7,15 @@
     </el-carousel>
       <el-col :span="3" v-for="(rs,index) in roomState" :key="index" :offset="index > 0 ? 0.9 : 0">
         <el-card class="box-card" shadow="hover" v-if="rs.state=='0'">
-          <div style="padding: 1px;">
-            <h6>房间号：{{rs.id}}</h6>
-            <h6>住户：</h6>
+          <div style="padding: 6px 1px 1px 6px;">
+            <p>房间号：{{rs.id}}</p>
+            <p>住户：</p>
           </div>
         </el-card>
-        <el-card class="box-card" shadow="hover" v-else-if="rs.state=='1'" style="background-color: #E6A23C">
-          <div style="padding: 1px;">
-            <h6>房间号：{{rs.id}}</h6>
-            <h6>住户：{{rs.guestName}}</h6>
+        <el-card class="box-card" shadow="hover" v-else-if="rs.state=='1'" style="background-color: #E6A23C;opacity:0.8;" >
+          <div style="padding: 6px 1px 1px 6px;">
+            <p>房间号：{{rs.id}}</p>
+            <p>住户：{{rs.guestName}}</p>
           </div>
         </el-card>
       </el-col>
@@ -84,7 +84,11 @@ export default {
 }
 
 .box-card{
+  padding: 0px;
   background-color: #67C23A;
-  opacity:0.9;
+  width: 100%;
+}
+p{
+  font-size: 11px;
 }
 </style>
